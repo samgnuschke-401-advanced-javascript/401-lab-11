@@ -21,7 +21,8 @@ users.pre('save', function(next) {
 });
 
 users.statics.authenticateBasic = function(auth) {
-  let query = {username:auth.username};
+  console.log(auth);
+  let query = {username: auth.username};
   return this.findOne(query)
     .then(user => user && user.comparePassword(auth.password))
     .catch(console.error);
@@ -39,7 +40,7 @@ users.methods.generateToken = function() {
     id:this._id,
     capabilities: (this.acl && this.acl.capabilities) || [],
   };
-  return jwt.sign(tokenData, process.env.SECRET || 'changeit' );
+  return jwt.sign(tokenData, process.env.SECRET || 'chaneit' );
 };
 
 module.exports = mongoose.model('users', users);

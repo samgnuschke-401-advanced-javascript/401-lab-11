@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const auth = require('../auth/router');
+const auth = require('../auth/middleware');
 
 router.get('/books', auth, handleGetAll);
 router.get('/books/:id', auth, handleGetOne);
