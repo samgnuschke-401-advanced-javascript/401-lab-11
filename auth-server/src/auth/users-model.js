@@ -40,7 +40,7 @@ users.methods.generateToken = function() {
     id:this._id,
     capabilities: (this.acl && this.acl.capabilities) || [],
   };
-  return jwt.sign(tokenData, process.env.SECRET || 'changeit' );
+  return jwt.sign(tokenData, process.env.SECRET || 'chaneit' );
 };
 
 module.exports = mongoose.model('users', users);

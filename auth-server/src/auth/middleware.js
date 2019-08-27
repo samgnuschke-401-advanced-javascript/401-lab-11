@@ -31,7 +31,7 @@ module.exports = (req, res, next) => {
     return User.authenticateBasic(auth)
       .then( user => {
         console.log(user);
-        _authenticate(user);
+         _authenticate(user);
       });
   }
 
@@ -44,7 +44,7 @@ module.exports = (req, res, next) => {
       next();
     }
     else {
-      _authError();
+      return _authError();
     }
   }
 
